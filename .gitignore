@@ -1,6 +1,7 @@
 *.dll
 *.exe
 .DS_Store
+terraform.tfvars
 example.tf
 terraform.tfplan
 terraform.tfstate
@@ -33,3 +34,6 @@ website/vendor
 
 # Keep windows files with windows line endings
 *.winfile eol=crlf
+
+terraform
+terraform-provider-twitter
