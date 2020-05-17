@@ -65,6 +65,7 @@ func resourceList() *schema.Resource {
 				// Temporarily restricted until paging is implemented
 				MaxItems: 100,
 				Elem:     &schema.Schema{Type: schema.TypeString},
+				// TODO: diff suppress for case insensitivity
 			},
 
 			"slug": {

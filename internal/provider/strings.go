@@ -2,9 +2,17 @@ package provider
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 )
+
+func caseInsensitiveStringSuppressDiff(k, old, new string, d *schema.ResourceData) bool {
+	old = strings.ToLower(old)
+	new = strings.ToLower(new)
+
+	return old == new
+}
 
 func setToStringSlice(src *schema.Set) ([]string, error) {
 	srcList := src.List()
