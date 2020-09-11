@@ -1,3 +1,5 @@
+[Published on the Terraform Registry](https://registry.terraform.io/providers/paultyng/twitter/latest)
+
 # Terraform Provider Twitter
 
 Maintain lists, blocks, and muted accounts in Terraform.
