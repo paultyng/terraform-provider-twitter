@@ -32,7 +32,7 @@ resource "twitter_list" "hashicorp" {
 
 ### Optional
 
-- **description** (String, Optional) The description to give the list.
+- **description** (String, Optional) The description to give the list. A list's description must be less than 24 characters.
 - **id** (String, Optional) The ID of this resource.
 - **members** (Set of String, Optional) The screen names of the user for whom to return results.
 - **mode** (String, Optional) Whether your list is public or private. Values can be `public` or `private`.
