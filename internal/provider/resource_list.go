@@ -29,8 +29,7 @@ func init() {
 	idRegexp := regexp.MustCompile("\\d+")
 	validateStringID = validation.StringMatch(idRegexp, "must be an integeger")
 
-	descRegexp := regexp.MustCompile(".{0,100}")
-	validateDesc = validation.StringMatch(descRegexp, `must be less than 100 characters`)
+	validateDesc = validation. StringLenBetween(0, 100)
 }
 
 func resourceList() *schema.Resource {
