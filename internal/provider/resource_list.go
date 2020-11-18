@@ -29,7 +29,7 @@ func init() {
 	idRegexp := regexp.MustCompile("\\d+")
 	validateStringID = validation.StringMatch(idRegexp, "must be an integeger")
 
-	validateDesc = validation. StringLenBetween(0, 100)
+	validateDesc = validation.StringLenBetween(0, 100)
 }
 
 func resourceList() *schema.Resource {
@@ -57,7 +57,7 @@ func resourceList() *schema.Resource {
 				ValidateFunc: validation.StringInSlice([]string{"public", "private"}, false),
 			},
 			"description": {
-				Description:  "The description to give the list.",
+				Description:  "The description to give the list. At most 100 characters.",
 				Type:         schema.TypeString,
 				Optional:     true,
 				ValidateFunc: validateDesc,
