@@ -16,6 +16,7 @@ import (
 )
 
 var (
+	validateDesc     schema.SchemaValidateFunc
 	validateName     schema.SchemaValidateFunc
 	validateStringID schema.SchemaValidateFunc
 )
@@ -27,6 +28,8 @@ func init() {
 	// using IDs as strings due to built-in ID attribute already being a string...
 	idRegexp := regexp.MustCompile("\\d+")
 	validateStringID = validation.StringMatch(idRegexp, "must be an integeger")
+
+	validateDesc = validation. StringLenBetween(0, 100)
 }
 
 func resourceList() *schema.Resource {
@@ -54,9 +57,10 @@ func resourceList() *schema.Resource {
 				ValidateFunc: validation.StringInSlice([]string{"public", "private"}, false),
 			},
 			"description": {
-				Description: "The description to give the list.",
-				Type:        schema.TypeString,
-				Optional:    true,
+				Description:  "The description to give the list.",
+				Type:         schema.TypeString,
+				Optional:     true,
+				ValidateFunc: validateDesc,
 			},
 			"members": {
 				Description: "The screen names of the user for whom to return results.",
